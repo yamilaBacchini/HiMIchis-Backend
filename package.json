@@ -1,0 +1,55 @@
+{
+  "name": "hi-michis",
+  "version": "1.0.0",
+  "description": "Aplicacion para adopcion de gatos",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "ts-node ./src/server.ts",
+    "start:watch": "nodemon",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yamilaBacchini/HiMichis-Backend.git"
+  },
+  "keywords": [
+    "michis",
+    "adoption",
+    "cats"
+  ],
+  "author": "Yamila Bacchini",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/yamilaBacchini/HiMichis-Backend/issues"
+  },
+  "homepage": "https://github.com/yamilaBacchini/HiMichis-Backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "tslint": "^6.1.2",
+    "typeorm": "^0.2.24"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^13.13.4",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.9.1",
+    "typescript": "^3.8.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*/.test.ts",
+      "*/.spec.ts",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  }
+}
