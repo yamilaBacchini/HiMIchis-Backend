@@ -14,4 +14,8 @@ export class AdoptionCatRepository {
             }
         })
     }
+
+    create(adoptionCat: AdoptionCat): Promise<AdoptionCat> {
+        return getManager().getRepository(AdoptionCat).save((adoptionCat));
+    }
 }

@@ -20,6 +20,10 @@ app.get('/getAdoptionCatById/:id', (req, res) => {
     adoptionCatRepository.getById(Number(req.params.id)).then((resultado) => res.send(resultado));
 })
 
+app.post('/createAdoptionCat', (req, res) => {
+    adoptionCatRepository.create(req.body).then((resultado) => res.send(resultado));
+})
+
 app.listen(3000, () => {
     console.log('Ready on port 3000!');
 });

@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class AdoptionCat {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column({
@@ -24,4 +24,11 @@ export class AdoptionCat {
         length: 50
     })
     gender: string;
+
+    @Column({
+        type: 'varchar',
+        nullable: true,
+        length: 50
+    })
+    color: string;
 }
