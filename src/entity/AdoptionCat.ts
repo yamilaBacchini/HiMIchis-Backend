@@ -1,9 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn, JoinTable, ManyToMany, ManyToOne} from 'typeorm';
+import {Color} from "./Color";
+import {Locality} from "./Locality";
+import {Location} from "./Location";
 
 @Entity()
 export class AdoptionCat {
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column({
         type: 'varchar',
@@ -11,6 +14,15 @@ export class AdoptionCat {
         length: 50
     })
     name: string;
+
+    @Column({
+        type: 'varchar',
+        length: 500
+    })
+    description: string;
+
+    @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
+    dateOfBirth: Date;
 
     @Column({
         type: 'int',
@@ -25,10 +37,13 @@ export class AdoptionCat {
     })
     gender: string;
 
-    @Column({
-        type: 'varchar',
-        nullable: true,
-        length: 50
-    })
-    color: string;
+    @ManyToMany(type => Color)
+    @JoinTable()
+    colors: Color[];
+
+    @ManyToOne(type => Location, location => location.adoptionCats)
+    location: Location;
+
+    @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
+    createdAt: Date;
 }
