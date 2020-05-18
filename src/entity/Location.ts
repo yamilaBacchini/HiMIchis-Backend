@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany} from 'typeorm';
-import {Province} from "./Province";
 import {Locality} from "./Locality";
 import {AdoptionCat} from "./AdoptionCat";
+import {User} from "./User";
 
 @Entity()
 export class Location {
@@ -26,4 +26,7 @@ export class Location {
 
     @OneToMany(type => AdoptionCat, adoptionCat => adoptionCat.location)
     adoptionCats: AdoptionCat[];
+
+    @ManyToOne(type => User, user => user.locations)
+    user: User;
 }
