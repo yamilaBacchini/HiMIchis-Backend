@@ -1,6 +1,5 @@
 import {Entity, Column, PrimaryGeneratedColumn, JoinTable, ManyToMany, ManyToOne} from 'typeorm';
 import {Color} from "./Color";
-import {Locality} from "./Locality";
 import {Location} from "./Location";
 
 @Entity()
@@ -23,12 +22,6 @@ export class AdoptionCat {
 
     @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
     dateOfBirth: Date;
-
-    @Column({
-        type: 'int',
-        nullable: false
-    })
-    age: number;
 
     @Column({
         type: 'varchar',
